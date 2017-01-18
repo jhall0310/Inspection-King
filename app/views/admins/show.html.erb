@@ -1,0 +1,23 @@
+ <p><%= @admin.email %></p><br>
+
+
+ <div class="page-header">
+ 					<h3>Pending Inspections</h3></div>
+ 			<div class="media">
+ 					<div class="media-body">
+ 						<% @admin.inspections.each do |inspection| %>
+            <% if inspection.pending? %>
+ 						<%= inspection.user.first_name %>
+ 						<%= inspection.user.last_name %>
+            <%= inspection.user.phone_number %>
+            <hr>
+            <%= inspection.job.resident_type %>
+            <%= inspection.job.address %>
+            <%= inspection.job.inspection_type %>
+
+ 							<%= link_to "approve or deny", inspection_path(inspection) %><br>
+ 							<% end %>
+ 							<% end %>
+
+ 					</div>
+ 			</div>

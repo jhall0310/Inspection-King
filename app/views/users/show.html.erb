@@ -1,0 +1,71 @@
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+<p>ljgljhgljhgkjhg</p>
+             <p><%= @user.email %></p><br>
+<hr>
+<%= button_to "Create inspection request", new_user_job_path(@user), method: :get, class:"btn btn-success", type:"button" %>
+<hr>
+
+<div class="page-header">
+         <h3>Yet to be claimed Inspections</h3></div>
+     <div class="media">
+         <div class="media-body">
+           <% @user.jobs.each do |job| %>
+           <% if job.claimed == false %>
+           <%= job.user.first_name %>
+           <%= job.user.last_name %>
+           <%= job.user.phone_number %>
+           <hr>
+           <%= job.resident_type %>
+           <%= job.address %>
+           <%= job.inspection_type %>
+
+             
+             <% end %>
+             <% end %>
+
+         </div>
+<hr>
+
+<div class="page-header">
+         <h3>Pending Inspections</h3></div>
+     <div class="media">
+         <div class="media-body">
+           <% @user.inspections.each do |inspection| %>
+           <% if inspection.pending == true  && inspection.approved == false %>
+           <%= inspection.user.first_name %>
+           <%= inspection.user.last_name %>
+           <%= inspection.user.phone_number %><br>
+
+           <%= inspection.job.resident_type %>
+           <%= inspection.job.address %>
+           <%= inspection.job.inspection_type %>
+
+             <%= link_to "View Inspection details", job_path(inspection.job) %><br>
+             <% end %>
+             <% end %>
+             <hr>
+         </div>
+     </div>
+
+     <hr>
+
+     <div class="page-header">
+              <h3>Approved Inspections</h3></div>
+          <div class="media">
+              <div class="media-body">
+                <% @user.inspections.each do |inspection| %>
+                <% if inspection.pending == false %>
+                <%= inspection.user.first_name %>
+                <%= inspection.user.last_name %>
+                <%= inspection.user.phone_number %>
+                <hr>
+                <%= inspection.job.resident_type %>
+                <%= inspection.job.address %>
+                <%= inspection.job.inspection_type %>
+
+                  <%= link_to "View Inspection details", job_path(inspection.job) %><br>
+                  <% end %>
+                  <% end %>
+
+              </div>
+          </div>

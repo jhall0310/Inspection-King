@@ -1,0 +1,26 @@
+
+	<div class="top-margin">
+	<div class="container">
+	    <div class="row product">
+
+				<% if current_admin %>
+
+	        </div>
+
+			<br>
+			<div class="row product">
+	        <div class="col-md-5 col-md-offset-0">
+						<h2><%= @inspection.user.first_name %>  <%= @inspection.user.last_name %></h2>
+            <hr>
+            <%= @inspection.job.resident_type %><br>
+            <%= @inspection.job.address %><br>
+            <%= @inspection.job.inspection_type %><br>
+
+						<%= button_to "approve!", approve_inspection_path(@inspection), method: :put, class:"btn btn-primary" %><br>
+						<
+					</div>
+					<% end %>
+	    </div>
+	    <%= link_to "Back", :back, method: :get %>
+	</div>
+	</div>

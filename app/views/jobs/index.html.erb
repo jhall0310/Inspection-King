@@ -1,0 +1,8 @@
+<% @jobs.each do |job| %>
+<% if job.claimed == false %>
+<p><%= job.resident_type %></p><br>
+<p><%= job.address %></p>
+<p><%= job.user.first_name %></p>
+ <%= link_to "claim this job",  new_job_inspection_path(job) %>
+ <% end %>
+<% end %>
