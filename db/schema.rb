@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170118141807) do
+ActiveRecord::Schema.define(version: 20170118211435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20170118141807) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "inspection_status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "inspection_id"
+    t.string   "title"
+    t.index ["inspection_id"], name: "index_comments_on_inspection_id", using: :btree
+  end
+
   create_table "inspections", force: :cascade do |t|
     t.boolean  "pending"
     t.boolean  "approved"
@@ -43,7 +52,9 @@ ActiveRecord::Schema.define(version: 20170118141807) do
     t.integer  "user_id"
     t.integer  "job_id"
     t.integer  "admin_id"
+    t.integer  "comment_id"
     t.index ["admin_id"], name: "index_inspections_on_admin_id", using: :btree
+    t.index ["comment_id"], name: "index_inspections_on_comment_id", using: :btree
     t.index ["job_id"], name: "index_inspections_on_job_id", using: :btree
     t.index ["user_id"], name: "index_inspections_on_user_id", using: :btree
   end
@@ -60,7 +71,18 @@ ActiveRecord::Schema.define(version: 20170118141807) do
     t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.boolean  "claimed"
+    t.integer  "note_id"
+    t.index ["note_id"], name: "index_jobs_on_note_id", using: :btree
     t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string   "title"
+    t.string   "instruction"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "job_id"
+    t.index ["job_id"], name: "index_notes_on_job_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,7 +100,11 @@ ActiveRecord::Schema.define(version: 20170118141807) do
   end
 
   add_foreign_key "admins", "inspections"
+  add_foreign_key "comments", "inspections"
   add_foreign_key "inspections", "admins"
+  add_foreign_key "inspections", "comments"
+  add_foreign_key "jobs", "notes"
   add_foreign_key "jobs", "users"
+  add_foreign_key "notes", "jobs"
   add_foreign_key "users", "jobs"
 end

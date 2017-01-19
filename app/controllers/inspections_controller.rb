@@ -1,11 +1,12 @@
 class InspectionsController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, :only => [:index]
 
   def index
   end
 
   def show
     @inspection = Inspection.find_by_id(params[:id])
+    @job = @inspection.job
   end
 
   def new

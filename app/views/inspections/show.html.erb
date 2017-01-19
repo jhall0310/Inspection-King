@@ -3,7 +3,7 @@
 	<div class="container">
 	    <div class="row product">
 
-				<% if current_admin %>
+
 
 	        </div>
 
@@ -16,9 +16,19 @@
             <%= @inspection.job.address %><br>
             <%= @inspection.job.inspection_type %><br>
 
+            <% @inspection.job.notes.each do |note| %>
+            Created on:<%= note.created_at %><br>
+            Update title: <%= note.title %><br>
+            Futher instructions: <%= note.instruction %><br>
+            <hr>
+
+            <% end %>
+            <% if current_admin %>
+
 						<%= button_to "approve!", approve_inspection_path(@inspection), method: :put, class:"btn btn-primary" %><br>
-						<
+						<%= button_to "Add status to inspection", new_job_note_path(@job), method: :get, class:"btn btn-primary" %><br>
 					</div>
+
 					<% end %>
 	    </div>
 	    <%= link_to "Back", :back, method: :get %>

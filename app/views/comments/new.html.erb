@@ -1,0 +1,10 @@
+<h1>Request and inspection</h1>
+<%= form_for @comment do |f| %>
+
+<%= f.text_field :title, placeholder: "Title", class: "form-control" %></br>
+<%= f.text_field :inspection_status, placeholder: "inspection status", class: "form-control" %></br>
+
+
+
+<%= f.submit "Add Inspection request", class: "btn btn-primary" %>
+<% end %>

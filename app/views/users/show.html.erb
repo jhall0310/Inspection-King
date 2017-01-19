@@ -13,13 +13,13 @@
            <% if job.claimed == false %>
            <%= job.user.first_name %>
            <%= job.user.last_name %>
-           <%= job.user.phone_number %>
-           <hr>
+           <%= job.user.phone_number %><br>
+
            <%= job.resident_type %>
            <%= job.address %>
            <%= job.inspection_type %>
 
-             
+
              <% end %>
              <% end %>
 
@@ -40,7 +40,7 @@
            <%= inspection.job.address %>
            <%= inspection.job.inspection_type %>
 
-             <%= link_to "View Inspection details", job_path(inspection.job) %><br>
+             <%= link_to "View Inspection details", inspection_path(inspection) %><br>
              <% end %>
              <% end %>
              <hr>
@@ -57,13 +57,13 @@
                 <% if inspection.pending == false %>
                 <%= inspection.user.first_name %>
                 <%= inspection.user.last_name %>
-                <%= inspection.user.phone_number %>
-                <hr>
+                <%= inspection.user.phone_number %><br>
+
                 <%= inspection.job.resident_type %>
                 <%= inspection.job.address %>
                 <%= inspection.job.inspection_type %>
 
-                  <%= link_to "View Inspection details", job_path(inspection.job) %><br>
+                  <%= link_to "View Inspection details", inspection_path(inspection) %><br>
                   <% end %>
                   <% end %>
 

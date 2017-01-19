@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  get 'notes/index'
+
+  get 'notes/show'
+
+  get 'notes/new'
+
+  get 'notes/create'
+
+  get 'notes/edit'
+
+  get 'notes/update'
+
+  get 'notes/destroy'
+
+  get 'comments/index'
+
+  get 'comments/show'
+
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  get 'comments/destroy'
+
   get 'inspections/index'
 
   get 'inspections/new'
@@ -31,11 +59,20 @@ Rails.application.routes.draw do
 
   put 'inspections/:id(.:format)' => 'inspections#approve', as: 'approve_inspection'
 
+  post '/jobs/:id/notes/new(.:format)' => 'notes#create'
+
+
+
   resources :jobs
 
   resources :admins
 
   resources :inspections
+
+  resources :jobs do
+    resources :notes
+  end
+
 
   resources :users do
     resources :jobs
