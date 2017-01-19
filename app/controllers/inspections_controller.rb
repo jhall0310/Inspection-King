@@ -13,6 +13,7 @@ class InspectionsController < ApplicationController
     @admin = current_admin
     p @admin
     @job = Job.find_by_id(params[:job_id])
+    @user = @job.user
     @inspection = Inspection.new
     @inspection.job = Job.find_by_id(params[:job_id])
 
@@ -25,7 +26,10 @@ class InspectionsController < ApplicationController
 
 
     @inspection.save
+
+
       if @inspection.save
+        UserMailer.job_claimed(@user, @job, @admin).deliver_now
         @job.update_attributes(claimed: true)
         flash[:notice] = "You have claimed this inspection."
       else
@@ -36,10 +40,14 @@ class InspectionsController < ApplicationController
 
 
     def approve
+      @admin = current_admin
       @inspection = Inspection.find_by_id(params[:id])
+      @user = @inspection.user
+      @job = @inspection.job
       @inspection.update_attributes(approved: true, pending: false)
 
     if @inspection.save
+      UserMailer.job_approved(@user, @job, @admin).deliver_now
       flash[:notice] = "You have approved this inspection."
 
       redirect_to admin_path(current_admin)

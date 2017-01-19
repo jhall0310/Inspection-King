@@ -13,13 +13,15 @@ class NotesController < ApplicationController
   end
 
   def create
+    @admin = current_admin
     job_id = params[:job_id]
     @job = Job.find_by(id: job_id)
-    new_note = Note.new(note_params)
+    @note = Note.new(note_params)
     @user = @job.user
     print @user
-    if new_note.save
-     @job.notes << new_note
+    if @note.save
+      UserMailer.job_updated(@user, @job, @admin, @note).deliver_now
+     @job.notes << @note
      redirect_to admin_path(current_admin)
 
       else

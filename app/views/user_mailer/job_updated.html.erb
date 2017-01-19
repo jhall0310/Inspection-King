@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.first_name %> <%= @user.last_name %></h1><br>
+
+    <p>Regarding your inspection request at the address:</p><br>
+
+    <b><%= @job.address %></b>
+    <hr>
+    <p>The inspector <%= @admin.name %> has left the inspection pending with these notes:</p> <br>
+    <b>Subject:</b><p><%= @note.title %></p><br>
+    <b>Further Instructions:</b><p><%= @note.instruction %></p><br>
+
+
+    <p>If you need to contact your inspector you can reach him at this address:</p><br>
+
+      <h3><%= @admin.email %></h3>
+
+    <p>Thank you and have a great day!</p>
+  </body>
+</html>
