@@ -32,13 +32,13 @@
          <div class="media-body">
            <% @user.inspections.each do |inspection| %>
            <% if inspection.pending == true  && inspection.approved == false %>
-           <%= inspection.user.first_name %>
-           <%= inspection.user.last_name %>
-           <%= inspection.user.phone_number %><br>
+           <b>Inspector:</b> <%= inspection.admin.name %><br>
+           <b>Inspector contact:</b> <%= inspection.admin.email %><br>
 
-           <%= inspection.job.resident_type %>
-           <%= inspection.job.address %>
-           <%= inspection.job.inspection_type %>
+
+
+          <b>Job Address:</b> <%= inspection.job.address %><br>
+          <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
 
              <%= link_to "View Inspection details", inspection_path(inspection) %><br>
              <% end %>

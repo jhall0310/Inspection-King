@@ -2,20 +2,20 @@
 
 
  <div class="page-header">
- 					<h3>Pending Inspections</h3></div>
+ 					<h2>Pending Inspections</h2></div>
  			<div class="media">
  					<div class="media-body">
  						<% @admin.inspections.each do |inspection| %>
             <% if inspection.pending? %>
- 						<%= inspection.user.first_name %>
- 						<%= inspection.user.last_name %>
-            <%= inspection.user.phone_number %>
-            <hr>
-            <%= inspection.job.resident_type %>
-            <%= inspection.job.address %>
-            <%= inspection.job.inspection_type %>
+ 				<b>Customer First:</b> <%= inspection.user.first_name %><br>
+ 					<b>Customer Name:</b> <%= inspection.user.last_name %><br>
+          <b>Phone Number:</b> <%= inspection.user.phone_number %><br>
 
- 							<%= link_to "approve or deny", inspection_path(inspection) %><br>
+            <b>Inspection type:</b> <%= inspection.job.resident_type %><br>
+          <b>Address:</b> <%= inspection.job.address %><br>
+            <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
+
+ 							<%= link_to "Inspection Options", inspection_path(inspection) %><br>
  							<% end %>
  							<% end %>
 

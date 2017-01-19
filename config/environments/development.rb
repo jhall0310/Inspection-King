@@ -9,8 +9,8 @@ Rails.application.configure do
   domain: "google.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: "pupshare33",
-  password: "Pup123456"
+  user_name: "cityservices33",
+  password: "City123456"
   }
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

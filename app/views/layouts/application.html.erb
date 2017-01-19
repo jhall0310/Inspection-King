@@ -24,13 +24,37 @@
 
 
   <body>
-
-    <% if current_user %>
-      Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
-      <%= link_to 'My Profile', user_path(current_user) %>
-    <% else %>
-    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', 'users/signup' %>
-    <% end %>
+    <div>
+    <nav class="navbar navbar-inverse navigation-clean-button">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">INSPECTION KING </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="active" role="presentation"><a href="#">__activeItem </a></li>
+                    <li role="presentation"><a href="#">__inactiveItem </a></li>
+                    <% if current_admin %>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Inspection Options<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><%= link_to 'Available Jobs', jobs_path %></li>
+                            <li role="presentation"><a href="#">__itemTwo </a></li>
+                            <li role="presentation"><a href="#">__ItemThree </a></li>
+                        </ul>
+                    </li>
+                    <% end %>
+                </ul>
+                <% if current_user %>
+                  <p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;">Signed in as <%= current_user.first_name %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to "Logout", '/logout', class: "navbar-link login" %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to "My Profile", user_path(current_user), class: "navbar-link login" %></p>
+                  <% else %>
+                <p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"><%= link_to 'Login', '/login', class: "navbar-link login" %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to 'Signup', 'users/signup', class: "navbar-link login" %></p>
+                <% end %>
+            </div>
+        </div>
+    </nav>
+    <div class="card"></div>
+</div>
+` `
 
     <%- flash.each do |name, msg| -%>
       <div class="alert alert-warning">
@@ -39,13 +63,42 @@
     <%- end -%>
     <hr>
 
-    <li role="presentation"><%= link_to 'Login in an Admin', '/admins/sign_in' %></li>
-    <li role="presentation"><%= link_to 'Signup as an Admin', '/admins/sign_up' %></li>
-    <% if current_admin %>
-    <li role="presentation"><%= link_to("Logout", destroy_admin_session_path, :method => :delete) %></li>
-    <hr>
-    <%= link_to 'My Profile', admin_path(current_admin) %>
-    <% end %>
+
     <%= yield %>
+    <div class="footer-dark">
+      <footer>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6 col-md-push-6 item text">
+                      <h3>Company Name</h3>
+                      <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                  </div>
+                  <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                      <h3>Services</h3>
+                      <ul>
+                        <% if current_admin %>
+                          <li><%= link_to("Logout", destroy_admin_session_path, :method => :delete) %></li>
+                          <li><%= link_to 'My Profile', admin_path(current_admin) %></li>
+                          <% else %>
+                          <li><%= link_to 'Login in an Admin', '/admins/sign_in' %></li>
+                          <li><%= link_to 'Signup as an Admin', '/admins/sign_up' %></li>
+                          <% end %>
+                      </ul>
+                  </div>
+                  <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                      <h3>About</h3>
+                      <ul>
+                          <li><a href="#">Company</a></li>
+                          <li><a href="#">Team</a></li>
+                          <li><a href="#">Careers</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-12 col-sm-4 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+              </div>
+              <p class="copyright">Company Name © 2016</p>
+          </div>
+      </footer>
+  </div>
+
   </body>
 </html>

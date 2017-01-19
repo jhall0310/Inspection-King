@@ -10,16 +10,17 @@
 			<br>
 			<div class="row product">
 	        <div class="col-md-5 col-md-offset-0">
-						<h2><%= @inspection.user.first_name %>  <%= @inspection.user.last_name %></h2>
+						<h2>Inspection Request for: <%= @inspection.user.first_name %>  <%= @inspection.user.last_name %></h2>
             <hr>
-            <%= @inspection.job.resident_type %><br>
-            <%= @inspection.job.address %><br>
-            <%= @inspection.job.inspection_type %><br>
+            <b>Building type:</b><%= @inspection.job.resident_type %><br>
+            <b>Address:</b><%= @inspection.job.address %><br>
+            <b>Inspection type:</b><%= @inspection.job.inspection_type %><br>
+						<hr>
 
             <% @inspection.job.notes.each do |note| %>
-            Created on:<%= note.created_at %><br>
-            Update title: <%= note.title %><br>
-            Futher instructions: <%= note.instruction %><br>
+            <b>Updated:</b> <%= time_ago_in_words(note.created_at) %> ago<br>
+            <b>Subject:</b> <%= note.title %><br>
+            <b>Futher instructions:</b> <%= note.instruction %><br>
             <hr>
 
             <% end %>
