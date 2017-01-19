@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119164152) do
+ActiveRecord::Schema.define(version: 20170119213256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170119164152) do
     t.string   "address"
     t.string   "inspection_type"
     t.string   "resident_name"
-    t.integer  "resident_phone_number"
     t.float    "longitude"
     t.float    "latitude"
     t.datetime "created_at",            null: false
@@ -73,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170119164152) do
     t.integer  "user_id"
     t.boolean  "claimed"
     t.integer  "note_id"
+    t.string   "resident_phone_number"
     t.index ["note_id"], name: "index_jobs_on_note_id", using: :btree
     t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
   end
@@ -91,12 +91,12 @@ ActiveRecord::Schema.define(version: 20170119164152) do
     t.string   "last_name"
     t.string   "company"
     t.integer  "contractor_number"
-    t.integer  "phone_number"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "job_id"
+    t.string   "phone_number"
     t.index ["job_id"], name: "index_users_on_job_id", using: :btree
   end
 

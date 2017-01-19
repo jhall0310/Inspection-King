@@ -1,0 +1,12 @@
+<h1>Request and inspection</h1>
+<%= form_for [@user, @job] do |f| %>
+<%= f.hidden_field :user_id %></br>
+<%= f.text_field :resident_type, placeholder: "Resident type", class: "form-control" %></br>
+<%= f.text_field :address, placeholder: "Address", class: "form-control" %></br>
+<%= f.text_field :inspection_type, placeholder: "Inspection Type", class: "form-control" %></br>
+<%= f.text_field :resident_name, placeholder: "Resident Name", class: "form-control" %></br>
+<%= f.text_field :resident_phone_number, placeholder: "Resident Phone Number", class: "form-control" %></br>
+
+
+<%= f.submit "Update Inspection request", class: "btn btn-primary" %>
+<% end %>

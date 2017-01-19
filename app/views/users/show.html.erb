@@ -1,6 +1,7 @@
 <h2><%= @user.first_name %> <%= @user.last_name %></h2>
 <p>ljgljhgljhgkjhg</p>
              <p><%= @user.email %></p><br>
+<%= button_to "Edit Account", edit_user_path(@user), method: :get, class:"btn btn-primary", type:"button" %><br/>
 <hr>
 <%= button_to "Create inspection request", new_user_job_path(@user), method: :get, class:"btn btn-success", type:"button" %>
 <hr>
@@ -17,8 +18,8 @@
 
            <%= job.resident_type %>
            <%= job.address %>
-           <%= job.inspection_type %>
-
+           <%= job.inspection_type %><br>
+           <%= link_to "Edit Job", edit_user_job_path(current_user, job) %><br>
 
              <% end %>
              <% end %>

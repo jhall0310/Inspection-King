@@ -1,0 +1,39 @@
+<%= form_for @user do |f| %>
+<div class="sign_up_form">
+
+
+<form class="bootstrap-form-with-validation">
+        <h2 class="text-center">Update Account</h2>
+
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for="text-input">First Name</label>
+            <%= f.text_field :first_name, class: "form-control" %></div>
+
+        <div class="form-group has-success has-feedback">
+          <label class="control-label" for="text-input">Last Name</label>
+            <%= f.text_field :last_name, class: "form-control" %></div>
+
+        <div class="form-group has-success has-feedback">
+          <label class="control-label" for="text-input">Company Name</label>
+            <%= f.text_field :company, class: "form-control" %></div>
+
+        <div class="form-group has-success has-feedback">
+          <label class="control-label" for="text-input">Contractor Number</label>
+            <%= f.text_field :contractor_number, class: "form-control" %></div>
+
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for="text-input">Phone Number</label>
+              <%= f.text_field :phone_number, class: "form-control" %></div>
+
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for="text-input">Email</label>
+              <%= f.email_field :email, class: "form-control" %></div>
+
+
+        <div class="form-group has-warning">
+
+            <%= f.submit "Update", class: "btn btn-primary"%>
+        </div>
+
+        </div>
+<% end %>

@@ -31,4 +31,12 @@ class UserMailer < ApplicationMailer
    mail(to: @user.email, subject: 'Inspection Approved')
  end
 
+ def job_created(user, job)
+   @user = user
+   @job = job
+
+
+   mail(to: @user.email, subject: 'Inspection Request Submitted')
+ end
+
 end

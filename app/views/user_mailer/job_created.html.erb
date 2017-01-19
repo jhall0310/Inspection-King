@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.first_name %> <%= @user.last_name %></h1><br>
+
+    <p>The city has received your inspection request with the following details:</p><br>
+
+    <b>Building type:</b> <p><%= @job.resident_type %></p><br>
+    <b>Address:</b> <p><%= @job.address %></p><br>
+    <b>Inspection type:</b> <p><%= @job.inspection_type %></p><br>
+    <b>Occupants Name:</b> <p><%= @job.resident_name %></p><br>
+    <b>Occupants Phone Number:</b> <p><%= @job.resident_phone_number %></p><br>
+    <hr>
+
+
+
+    <p>When this inspection is claimed by an inspector of the city you will get an email notice.</p><br>
+
+
+
+    <p>Thank you and have a great day!</p>
+  </body>
+</html>
