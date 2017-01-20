@@ -13,6 +13,7 @@ class NotesController < ApplicationController
   end
 
   def create
+
     @admin = current_admin
     job_id = params[:job_id]
     @job = Job.find_by(id: job_id)

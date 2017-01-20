@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   put 'inspections/:id(.:format)' => 'inspections#approve', as: 'approve_inspection'
+  get 'inspections/history' => 'inspections#history', as: 'inspections_history'
 
   post '/jobs/:id/notes/new(.:format)' => 'notes#create'
 

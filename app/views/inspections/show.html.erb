@@ -32,13 +32,20 @@
 
             <% end %>
             <% if current_admin && @inspection.pending == true %>
+            <div class="approve_button">
+              	<%= link_to "approve!", approve_inspection_path(@inspection), method: :put %><br>
+            </div>
+            <div class="add_status">
+              	<%= link_to "Add status to inspection", new_job_note_path(@job), method: :get %><br>
+            </div>
 
-						<%= button_to "approve!", approve_inspection_path(@inspection), method: :put, class:"btn btn-success" %><br>
-						<%= button_to "Add status to inspection", new_job_note_path(@job), method: :get, class:"btn btn-primary" %><br>
 						<% elsif current_admin %>
 						<p>This inspection has already been approved and closed out.</p>
 						<% end %>
-						<%= link_to "Back", :back, method: :get %>
+            <div class="back_button">
+              <%= link_to "Back", :back, method: :get %>
+            </div>
+
 					</div>
 
 

@@ -1,0 +1,16 @@
+<h1>History of Inspections</h1>
+
+
+
+
+<% @inspections.each do |inspection| %>
+
+<b>Inspector:</b> <%= inspection.admin.name %><br>
+<b>Inspector contact:</b> <%= inspection.admin.email %><br>
+<b>Job Address:</b> <%= inspection.job.address %><br>
+<b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
+
+<%= button_to "View Inspection details", inspection_path(inspection), method: :get, class:"btn btn-primary" %><br>
+
+
+<% end %>

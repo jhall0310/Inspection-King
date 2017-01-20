@@ -11,6 +11,7 @@
   border-color: #333;
   padding-top: 60px;
   float: left;
+  border-radius: 5pt;
 }
 
 .admin_profile h3 {
@@ -25,6 +26,41 @@
 
 }
 
+.pending_link {
+  background-color: #f5f558;
+  color: black;
+  height: 40px;
+  width: 200px;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-left: 40px;
+  border-radius: 3pt;
+}
+
+.pending_link a {
+  text-decoration: none;
+  color: #59544c;
+}
+
+.edit_button {
+  background-color: #f5f558;
+  color: black;
+  height: 40px;
+  width: 200px;
+  text-decoration: none;
+  padding-top: 10px;
+
+  border-radius: 3pt;
+  margin-left: 50px;
+}
+
+.edit_button a {
+  text-align: center;
+  text-decoration: none;
+  color: #59544c;
+}
+
+
 .completed_inspections {
   width: 700px;
   height: 100%;
@@ -35,4 +71,20 @@
 
 .seperator {
   width: 100%;
+}
+
+.completed_button {
+  background-color: #f5f558;
+  color: black;
+  height: 40px;
+  width: 200px;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-left: 40px;
+  border-radius: 3pt;
+}
+
+.completed_button a {
+  text-decoration: none;
+  color: #59544c;
 }

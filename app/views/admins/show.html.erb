@@ -3,7 +3,10 @@
 <div class="admin_profile">
     <h3><%= @admin.name %></h3>
     <p class="card-text"><%= @admin.email %></p>
-    <%= button_to "edit profile", edit_admin_registration_path(@admin), method: :get, class:"btn btn-primary", type:"button" %><br>
+
+    <div class="edit_button">
+      <%= link_to "edit profile", edit_admin_registration_path(@admin), method: :get %><br>
+    </div>
 </div>
 
 
@@ -17,10 +20,14 @@
         <b>Building type:</b> <%= inspection.job.resident_type %><br>
         <b>Address:</b> <%= inspection.job.address %><br>
         <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
-        <%= button_to "Inspection Options", inspection_path(inspection), method: :get, class:"btn btn-primary", type:"button" %><br>
+        <div class="pending_link">
+        <%= link_to "Inspection Options", inspection_path(inspection), method: :get %><br>
+        </div>
         <hr>
- 							<% end %>
- 							<% end %>
+        <% end %>
+        <% end %>
+
+
 
  					</div>
 
@@ -34,7 +41,10 @@
       <b>Building type:</b> <%= inspection.job.resident_type %><br>
       <b>Address:</b> <%= inspection.job.address %><br>
       <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
-      <%= button_to "Inspection Options", inspection_path(inspection), method: :get, class:"btn btn-primary", type:"button" %><br>
+      <div class="completed_button">
+          <%= link_to "Inspection Options", inspection_path(inspection), method: :get %><br>
+      </div>
+
       <hr>
             <% end %>
             <% end %>

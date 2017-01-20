@@ -10,6 +10,10 @@ class InspectionsController < ApplicationController
     end
   end
 
+  def history
+    @inspections = Inspection.all
+  end
+
   def show
     @inspection = Inspection.find_by_id(params[:id])
     @job = @inspection.job

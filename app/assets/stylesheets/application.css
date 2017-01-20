@@ -23,4 +23,6 @@
  *= require_user
  */
 
- 
+ body {
+   background-color: #aec8d1;
+ }
