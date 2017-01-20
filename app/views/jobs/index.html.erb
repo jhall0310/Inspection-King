@@ -1,8 +1,21 @@
+
+
+<h1 align="center"> All Unclaimed Inspections </h1>
+
+
+
 <% @jobs.each do |job| %>
-<% if job.claimed == false %>
-<p><%= job.resident_type %></p><br>
-<p><%= job.address %></p>
-<p><%= job.user.first_name %></p>
- <%= link_to "claim this job",  new_job_inspection_path(job) %>
- <% end %>
+ <% if job.claimed == false %>
+<div class="card">
+  <div class="job_index">
+    <div class="card-block">
+    <h4 class="card-title"> <b>Building Type:</b> <%= job.resident_type %></h4>
+    <h6 class="card-title"><b>Address:</b> <%= job.address %></h6>
+    <p class="card-text"><b>Submitted By:</b> <%= job.user.first_name %> <%= job.user.last_name %> </p><br>
+    <p class="card-text"><b>Inpsection Type:</b> <%= job.user.last_name %> </p><br>
+    <%= link_to "claim this inspection",  new_job_inspection_path(job), class: "card-link" %>
+    </div>
+  </div>
+</div>
+<% end %>
 <% end %>

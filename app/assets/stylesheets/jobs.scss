@@ -1,3 +1,19 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.job_index {
+  border: 0.5pt solid #bdc3cc;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 5pt;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+#job_map {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}

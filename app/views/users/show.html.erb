@@ -1,20 +1,23 @@
-<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-<p>ljgljhgljhgkjhg</p>
-             <p><%= @user.email %></p><br>
-<%= button_to "Edit Account", edit_user_path(@user), method: :get, class:"btn btn-primary", type:"button" %><br/>
-<hr>
-<%= button_to "Create inspection request", new_user_job_path(@user), method: :get, class:"btn btn-success", type:"button" %>
-<hr>
+<h1 align="center"> Account Summary </h1>
+<div class="user_profile">
+    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+    <p class="card-text"><%= @user.email %></p>
+    <%= button_to "Edit Account", edit_user_path(@user), method: :get, class:"btn btn-primary", type:"button" %><br/>
+    <%= button_to "Create inspection request", new_user_job_path(@user), method: :get, class:"btn btn-success", type:"button" %>
+</div>
 
-<div class="page-header">
-         <h3>Yet to be claimed Inspections</h3></div>
-     <div class="media">
-         <div class="media-body">
+
+
+
+
+
+<div class="unclaimed">
+
+
+         <h3>Yet to be claimed Inspections</h3>
+
            <% @user.jobs.each do |job| %>
            <% if job.claimed == false %>
-           <%= job.user.first_name %>
-           <%= job.user.last_name %>
-           <%= job.user.phone_number %><br>
 
            <%= job.resident_type %>
            <%= job.address %>
@@ -23,14 +26,15 @@
 
              <% end %>
              <% end %>
+</div>
 
-         </div>
 <hr>
 
-<div class="page-header">
-         <h3>Pending Inspections</h3></div>
-     <div class="media">
-         <div class="media-body">
+<div class="pending">
+
+
+         <h3>Pending Inspections</h3>
+
            <% @user.inspections.each do |inspection| %>
            <% if inspection.pending == true  && inspection.approved == false %>
            <b>Inspector:</b> <%= inspection.admin.name %><br>
@@ -44,29 +48,24 @@
              <%= link_to "View Inspection details", inspection_path(inspection) %><br>
              <% end %>
              <% end %>
-             <hr>
-         </div>
-     </div>
 
-     <hr>
+</div>
 
-     <div class="page-header">
-              <h3>Approved Inspections</h3></div>
-          <div class="media">
-              <div class="media-body">
+     <div class="completed">
+
+
+              <h3>Approved Inspections</h3>
+
                 <% @user.inspections.each do |inspection| %>
                 <% if inspection.pending == false %>
-                <%= inspection.user.first_name %>
-                <%= inspection.user.last_name %>
-                <%= inspection.user.phone_number %><br>
+                <b>Inspector:</b> <%= inspection.admin.name %><br>
+                <b>Inspector contact:</b> <%= inspection.admin.email %><br>
+                <b>Job Address:</b> <%= inspection.job.address %><br>
+                <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
 
-                <%= inspection.job.resident_type %>
-                <%= inspection.job.address %>
-                <%= inspection.job.inspection_type %>
-
-                  <%= link_to "View Inspection details", inspection_path(inspection) %><br>
+                  <%= link_to "Review inspection notes", inspection_path(inspection) %><br>
                   <% end %>
                   <% end %>
 
-              </div>
+
           </div>

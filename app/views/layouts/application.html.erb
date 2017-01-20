@@ -38,7 +38,7 @@
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Inspection Options<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li role="presentation"><%= link_to 'Available Jobs', jobs_path %></li>
-                            <li role="presentation"><a href="#">__itemTwo </a></li>
+                            <li role="presentation"><%= link_to 'Open Jobs', inspections_path %></li>
                             <li role="presentation"><a href="#">__ItemThree </a></li>
                         </ul>
                     </li>
@@ -46,7 +46,7 @@
                 </ul>
                 <% if current_user %>
                   <p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;">Signed in as <%= current_user.first_name %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to "Logout", '/logout', class: "navbar-link login" %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to "My Profile", user_path(current_user), class: "navbar-link login" %></p>
-                  <% else %>
+                  <% elsif current_admin == nil %>
                 <p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"><%= link_to 'Login', '/login', class: "navbar-link login" %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to 'Signup', 'users/signup', class: "navbar-link login" %></p>
                 <% end %>
             </div>
@@ -54,17 +54,21 @@
     </nav>
     <div class="card"></div>
 </div>
-` `
+
 
     <%- flash.each do |name, msg| -%>
       <div class="alert alert-warning">
         <strong><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></strong>
       </div>
     <%- end -%>
-    <hr>
 
 
-    <%= yield %>
+<div class="container">
+
+
+      <%= yield %>
+
+</div>
     <div class="footer-dark">
       <footer>
           <div class="container">
@@ -76,13 +80,15 @@
                   <div class="col-md-3 col-md-pull-6 col-sm-4 item">
                       <h3>Services</h3>
                       <ul>
+
                         <% if current_admin %>
                           <li><%= link_to("Logout", destroy_admin_session_path, :method => :delete) %></li>
                           <li><%= link_to 'My Profile', admin_path(current_admin) %></li>
-                          <% else %>
+                          <% elsif current_user == nil %>
                           <li><%= link_to 'Login in an Admin', '/admins/sign_in' %></li>
                           <li><%= link_to 'Signup as an Admin', '/admins/sign_up' %></li>
                           <% end %>
+
                       </ul>
                   </div>
                   <div class="col-md-3 col-md-pull-6 col-sm-4 item">

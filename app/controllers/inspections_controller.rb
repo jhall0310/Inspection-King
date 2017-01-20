@@ -2,11 +2,23 @@ class InspectionsController < ApplicationController
   before_action :authenticate_admin!, :only => [:index]
 
   def index
+    @inspections = Inspection.all
+    @hash = Gmaps4rails.build_markers(@inspections) do |inspection, marker|
+      marker.lat inspection.job.latitude
+      marker.lng inspection.job.longitude
+      marker.infowindow inspection.job.address
+    end
   end
 
   def show
     @inspection = Inspection.find_by_id(params[:id])
     @job = @inspection.job
+    @hash = Gmaps4rails.build_markers(@inspection) do |inspection, marker|
+
+      marker.lat inspection.job.latitude
+      marker.lng inspection.job.longitude
+      marker.infowindow inspection.job.address
+    end
   end
 
   def new

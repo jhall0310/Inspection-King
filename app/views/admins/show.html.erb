@@ -1,23 +1,45 @@
- <p><%= @admin.email %></p><br>
+<h1 align="center"> Your Inspection Management Page </h1>
+<hr>
+<div class="admin_profile">
+    <h3><%= @admin.name %></h3>
+    <p class="card-text"><%= @admin.email %></p>
+    <%= button_to "edit profile", edit_admin_registration_path(@admin), method: :get, class:"btn btn-primary", type:"button" %><br>
+</div>
 
 
- <div class="page-header">
- 					<h2>Pending Inspections</h2></div>
- 			<div class="media">
- 					<div class="media-body">
- 						<% @admin.inspections.each do |inspection| %>
-            <% if inspection.pending? %>
+<div class="pending_inspections">
+ 		<h3>Pending Inspections</h3>
+ 			<% @admin.inspections.each do |inspection| %>
+        <% if inspection.pending? %>
  				<b>Customer First:</b> <%= inspection.user.first_name %><br>
- 					<b>Customer Name:</b> <%= inspection.user.last_name %><br>
-          <b>Phone Number:</b> <%= inspection.user.phone_number %><br>
-
-            <b>Inspection type:</b> <%= inspection.job.resident_type %><br>
-          <b>Address:</b> <%= inspection.job.address %><br>
-            <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
-
- 							<%= link_to "Inspection Options", inspection_path(inspection) %><br>
+ 				<b>Customer Name:</b> <%= inspection.user.last_name %><br>
+        <b>Phone Number:</b> <%= inspection.user.phone_number %><br>
+        <b>Building type:</b> <%= inspection.job.resident_type %><br>
+        <b>Address:</b> <%= inspection.job.address %><br>
+        <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
+        <%= button_to "Inspection Options", inspection_path(inspection), method: :get, class:"btn btn-primary", type:"button" %><br>
+        <hr>
  							<% end %>
  							<% end %>
 
  					</div>
- 			</div>
+
+<div class="completed_inspections">
+  <h3>Completed Inspections</h3>
+    <% @admin.inspections.each do |inspection| %>
+      <% if inspection.pending == false %>
+      <b>Customer First:</b> <%= inspection.user.first_name %><br>
+      <b>Customer Name:</b> <%= inspection.user.last_name %><br>
+      <b>Phone Number:</b> <%= inspection.user.phone_number %><br>
+      <b>Building type:</b> <%= inspection.job.resident_type %><br>
+      <b>Address:</b> <%= inspection.job.address %><br>
+      <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
+      <%= button_to "Inspection Options", inspection_path(inspection), method: :get, class:"btn btn-primary", type:"button" %><br>
+      <hr>
+            <% end %>
+            <% end %>
+
+        </div>
+<div class="seperator">
+
+</div>
