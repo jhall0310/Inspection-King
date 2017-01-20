@@ -54,20 +54,21 @@
 	  markers = handler.addMarkers(<%=raw @hash.to_json %>);
 	  handler.bounds.extendWith(markers);
 	  handler.fitMapToBounds();
+		handler.getMap().setZoom(16);
 	});
 
 	</script>
 
 
 	<script type="text/javascript">
-	$(document).ready(function(){
-	    //Check if the current URL contains '#'
-	    if(document.URL.indexOf("/inspections")==-1){
-	        // Set the URL to whatever it was plus "#".
-	        url = document.URL+"/inspections";
-	        location = "/inspections";
-	        //Reload the page
-	        location.reload(true);
-	    }
-	});
-	</script>
+$(document).ready(function(){
+    //Check if the current URL contains '#'
+    if(document.URL.indexOf("/inspections")==-1){
+        // Set the URL to whatever it was plus "#".
+        url = document.URL+"/inspections";
+        location = "/inspections";
+        //Reload the page
+        location.reload(true);
+    }
+});
+</script>
