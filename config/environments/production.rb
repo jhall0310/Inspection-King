@@ -9,8 +9,8 @@ Rails.application.configure do
   domain: "google.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: "pupshare33",
-  password: "Pup123456"
+  user_name: "cityservices33",
+  password: "City123456"
   }
   # Code is not reloaded between requests.
   config.cache_classes = true
