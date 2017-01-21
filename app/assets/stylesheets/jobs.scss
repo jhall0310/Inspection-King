@@ -1,19 +1,41 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.job_index {
-  border: 0.5pt solid #bdc3cc;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 5pt;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 15px;
-}
+
 
 #job_map {
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
+}
+
+.claim_button {
+  background-color: #ffe74f;
+  color: black;
+  height: 40px;
+  width: 200px;
+  text-decoration: none;
+  padding-top: 10px;
+  border-radius: 3pt;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+.claim_button a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+
+}
+
+.job_index {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 300px;
+  text-align: center;
+  border-radius: 3pt;
+  padding-top: 40px;
 }

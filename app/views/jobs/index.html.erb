@@ -1,22 +1,29 @@
 <main id="main" role="main">
 
 <h1 align="center"> All Unclaimed Inspections </h1>
+<hr>
 
 
 
 <% @jobs.each do |job| %>
  <% if job.claimed == false %>
-<div class="card">
+ <div class="job_index">
+   <div class="card">
   <div class="job_index">
     <div class="card-block">
     <h4 class="card-title"> <b>Building Type:</b> <%= job.resident_type %></h4>
     <h6 class="card-title"><b>Address:</b> <%= job.address %></h6>
     <p class="card-text"><b>Submitted By:</b> <%= job.user.first_name %> <%= job.user.last_name %> </p><br>
     <p class="card-text"><b>Inpsection Type:</b> <%= job.user.last_name %> </p><br>
+    <div class="claim_button">
     <%= link_to "claim this inspection",  new_job_inspection_path(job), class: "card-link" %>
+    </div>
+
     </div>
   </div>
 </div>
+</div>
+<hr>
 <% end %>
 <% end %>
 </main>

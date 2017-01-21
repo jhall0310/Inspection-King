@@ -1,16 +1,25 @@
 <h1>History of Inspections</h1>
 
 
-
-
-<% @inspections.each do |inspection| %>
-
-<b>Inspector:</b> <%= inspection.admin.name %><br>
-<b>Inspector contact:</b> <%= inspection.admin.email %><br>
-<b>Job Address:</b> <%= inspection.job.address %><br>
-<b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
-
-<%= button_to "View Inspection details", inspection_path(inspection), method: :get, class:"btn btn-primary" %><br>
-
-
-<% end %>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Inspector:</th>
+      <th>Inspector contact:</th>
+      <th>Job Address:</th>
+      <th>Inspection type:</th>
+      <th>View Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inspections.each do |inspection| %>
+    <tr>
+      <td><%= inspection.admin.name %></td>
+      <td><%= inspection.admin.email %></td>
+      <td><%= inspection.job.address %></td>
+      <td><%= inspection.job.inspection_type %></td>
+      <td><%= link_to "View Inspection details", inspection_path(inspection), method: :get %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

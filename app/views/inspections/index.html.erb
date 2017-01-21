@@ -1,17 +1,26 @@
 
-<h1>All Open Inspections</h1>
+<h1 align="center"> All Open Inspections </h1>
+<hr>
 
 
 
 
 <% @inspections.each do |inspection| %>
+
+
+
 <% if inspection.pending == true  && inspection.approved == false %>
+<div class="open_inspections">
 <b>Inspector:</b> <%= inspection.admin.name %><br>
 <b>Inspector contact:</b> <%= inspection.admin.email %><br>
 <b>Job Address:</b> <%= inspection.job.address %><br>
 <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
+<div class="open_button">
+  <%= link_to "View Inspection details", inspection_path(inspection), method: :get %><br>
+  </div>
+</div>
 
-<%= button_to "View Inspection details", inspection_path(inspection), method: :get, class:"btn btn-primary" %><br>
 
+<hr>
 <% end %>
 <% end %>
