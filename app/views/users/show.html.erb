@@ -1,9 +1,18 @@
+<div class="user_background">
+  
+</div>
+
 <h1 align="center"> Account Summary </h1>
 <div class="user_profile">
     <h3><%= @user.first_name %> <%= @user.last_name %></h3>
     <p class="card-text"><%= @user.email %></p>
-    <%= button_to "Edit Account", edit_user_path(@user), method: :get, class:"btn btn-primary", type:"button" %><br/>
-    <%= button_to "Create inspection request", new_user_job_path(@user), method: :get, class:"btn btn-success", type:"button" %>
+    <div class="user_edit">
+      <%= link_to "Edit Account", edit_user_path(@user), method: :get %><br/>
+    </div>
+    <div class="user_create_inspection">
+      <%= link_to "Create inspection request", new_user_job_path(@user), method: :get %>
+    </div>
+
 </div>
 
 
@@ -22,8 +31,10 @@
            <%= job.resident_type %>
            <%= job.address %>
            <%= job.inspection_type %><br>
-           <%= link_to "Edit Job", edit_user_job_path(current_user, job) %><br>
-
+           <div class="edit_job">
+             <%= link_to "Edit Job", edit_user_job_path(current_user, job) %><br>
+           </div>
+           <hr>
              <% end %>
              <% end %>
 </div>
@@ -44,8 +55,11 @@
 
           <b>Job Address:</b> <%= inspection.job.address %><br>
           <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
+            <div class="user_pending">
+               <%= link_to "View Inspection details", inspection_path(inspection) %><br>
+            </div>
 
-             <%= link_to "View Inspection details", inspection_path(inspection) %><br>
+             <hr>
              <% end %>
              <% end %>
 
@@ -62,8 +76,11 @@
                 <b>Inspector contact:</b> <%= inspection.admin.email %><br>
                 <b>Job Address:</b> <%= inspection.job.address %><br>
                 <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
-
+                <div class="user_approved">
                   <%= link_to "Review inspection notes", inspection_path(inspection) %><br>
+                </div>
+
+                  <hr>
                   <% end %>
                   <% end %>
 

@@ -1,3 +1,7 @@
+<div class="history_background">
+
+</div>
+
 <h1>History of Inspections</h1>
 
 
@@ -10,19 +14,21 @@
   <thead class="thead-inverse">
     <tr>
       <th>Inspector:</th>
-      <th>Inspector contact:</th>
       <th>Job Address:</th>
       <th>Inspection type:</th>
+      <th>Date Created </th>
       <th>View Details</th>
+
     </tr>
   </thead>
   <tbody>
     <% @inspections.each do |inspection| %>
     <tr>
       <td><%= inspection.admin.name %></td>
-      <td><%= inspection.admin.email %></td>
+
       <td><%= inspection.job.address %></td>
       <td><%= inspection.job.inspection_type %></td>
+      <td><%= inspection.created_at.strftime("%m-%d-%Y")  %></td>
       <td><%= link_to "View Inspection details", inspection_path(inspection), method: :get %></td>
     </tr>
     <% end %>

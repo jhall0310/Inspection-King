@@ -1,4 +1,9 @@
-<h1>Request and inspection</h1>
+<div class="note_background">
+
+</div>
+
+
+<h1>Add Note to Inspection</h1>
 <%= form_for [@job, @note]  do |f| %>
 
 <%= f.text_field :title, placeholder: "Title", class: "form-control" %></br>
@@ -6,5 +11,8 @@
 
 
 
-<%= f.submit "Add Update to inspection request", class: "btn btn-primary" %>
+
+
+<%= f.submit "Add Update to inspection request", class: "btn btn-success" %>
+
 <% end %>

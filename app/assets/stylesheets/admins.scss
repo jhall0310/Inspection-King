@@ -11,7 +11,8 @@
   border-color: #333;
   padding-top: 60px;
   float: left;
-  border-radius: 5pt;
+  border-radius: 50%;
+
 }
 
 .admin_profile h3 {
@@ -87,4 +88,10 @@
 .completed_button a {
   text-decoration: none;
   color: #59544c;
+}
+
+.admin_background {
+  height: 400px;
+  background-image: url('http://i.imgur.com/GPsJVKX.jpg');
+  background-size: cover;
 }

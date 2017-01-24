@@ -18,6 +18,7 @@
 	        <div class="col-md-5 col-md-offset-0">
 						<h3>Inspection submitted by: <%= @inspection.user.first_name %>  <%= @inspection.user.last_name %></h3><br>
 
+            <b>Contractor Phone Number: </b><%= @inspection.user.phone_number %><br>
             <b>Building type:</b><%= @inspection.job.resident_type %><br>
             <b>Address:</b><%= @inspection.job.address %><br>
             <b>Inspection type:</b><%= @inspection.job.inspection_type %><br>
