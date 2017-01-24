@@ -12,7 +12,12 @@ class InspectionsController < ApplicationController
 
   def history
     @inspections = Inspection.all
+    if params[:search]
+    @inspections = Inspection.search(params[:search]).order("created_at DESC")
+  else
+    @inspections = Inspection.all.order('created_at DESC')
   end
+end
 
   def show
     @inspection = Inspection.find_by_id(params[:id])
@@ -72,4 +77,9 @@ class InspectionsController < ApplicationController
 
   def destroy
   end
+
+  def inspection_params
+  params.require(:inspection).permit(:pending, :approved, :updates, :term)
+  end
+
 end

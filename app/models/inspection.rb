@@ -4,4 +4,7 @@ class Inspection < ApplicationRecord
   belongs_to :job
   belongs_to :admin
 
+
+
+
 end
