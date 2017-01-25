@@ -21,8 +21,8 @@ Inspection King is an introduction app into what potential to increase efficienc
 
 ## ERD
 
-![alt text]('http://i.imgur.com/UP3IEI2.jpg')
+![alt text](http://i.imgur.com/UP3IEI2.jpg)
 
 ## Planned Features
 
-Eventually I would like the ability to add invoice payment on the resident side. More hardcoded statuses instead off strings also the ability to allow users to upload custom images. 
+Eventually I would like the ability to add invoice payment on the resident side. More hardcoded statuses instead off strings also the ability to allow users to upload custom images.
