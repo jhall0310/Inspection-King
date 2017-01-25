@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Inspection King
 
-Things you may want to cover:
+A more modern approach for local governments building departments.
 
-* Ruby version
+## Technologies Used
 
-* System dependencies
+* Ruby on Rails
+* Postgres SQL
+* JavaScript
+* Jquery
+* Heroku
+* ActionMailer
+* Imgur
 
-* Configuration
 
-* Database creation
+## Description
 
-* Database initialization
+Inspection King is an introduction app into what potential to increase efficiency for local governments.  Typically a building permit is issued then the contractor has to contact the inspection department to request inspections that are required for, solar, electrical, final inspection, etc..Inspection King gives contractors the ability to schedule inspections, and city officials the ability to add updates and approve existing inspections.
 
-* How to run the test suite
+## ERD
 
-* Services (job queues, cache servers, search engines, etc.)
+![alt text]('http://i.imgur.com/UP3IEI2.jpg')
 
-* Deployment instructions
+## Planned Features
 
-* ...
+Eventually I would like the ability to add invoice payment on the resident side. More hardcoded statuses instead off strings also the ability to allow users to upload custom images. 
