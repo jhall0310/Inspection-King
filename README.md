@@ -13,6 +13,9 @@ A more modern approach for local governments building departments.
 * Heroku
 * ActionMailer
 * Imgur
+* Google Maps
+* Bcrypt
+* Devise
 
 
 ## Description
