@@ -4,9 +4,13 @@
 
 
 <h1 align="center"> All Unclaimed Inspections </h1>
+
+
+<div class="jobs_instructions">
+  <p><b>Instructions: </b>From here if you claim a job it will show on your profile page as pending.</p>
+</div>
+
 <hr>
-
-
 
 <% @jobs.each do |job| %>
  <% if job.claimed == false %>

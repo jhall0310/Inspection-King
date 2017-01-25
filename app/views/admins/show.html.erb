@@ -14,6 +14,11 @@
     </div>
 </div>
 
+<div class="admin_instructions">
+<p>  <b>Instructions: </b> From here in the nav bar you can acccess available inspections to claim, open inspections where you can modify another inspectors open inspections, and inspectin history to view a history of all inspections that went throught the city.</p><br>
+<p>From here all the pending inspections can be updated or approved by clicking on "View inspection details". Once an inspections is closed out or approved it moves to that officals history. Where no longer changes can be made to the inspection however you can view the inspection notes.</p>
+</div>
+
 
 <div class="pending_inspections">
  		<h3>Pending Inspections</h3>
@@ -47,7 +52,7 @@
       <b>Address:</b> <%= inspection.job.address %><br>
       <b>Inspection type:</b> <%= inspection.job.inspection_type %><br>
       <div class="completed_button">
-          <%= link_to "Inspection Options", inspection_path(inspection), method: :get %><br>
+          <%= link_to "Review details", inspection_path(inspection), method: :get %><br>
       </div>
 
       <hr>
