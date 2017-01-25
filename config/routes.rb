@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   get 'welcome/index'
+  get '/about' => 'welcome#about', as: 'about'
 
   root to: "welcome#index"
 

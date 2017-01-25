@@ -1,16 +1,21 @@
-<h2>Sign up Official</h2>
+<div class="admin_new">
+
+</div>
+
+
+<h2>Sign up Employee</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, placeholder: "First and Last", autofocus: true %>
+    <%= f.text_field :name, placeholder: "First and Last", class: "form-control", autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, class: "form-control", autofocus: true %>
   </div>
 
   <div class="field">
@@ -18,17 +23,17 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
+  </div><br>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <%= f.submit "Sign up", class: "btn btn-success" %>
+  </div><br>
 <% end %>
 
 <%= render "admins/shared/links" %>
