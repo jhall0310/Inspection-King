@@ -21,6 +21,7 @@ class NotesController < ApplicationController
     @user = @job.user
     print @user
     if @note.save
+      flash[:notice] = "Note added successfully."
       UserMailer.job_updated(@user, @job, @admin, @note).deliver_now
      @job.notes << @note
      redirect_to admin_path(current_admin)
