@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
    if user && user.authenticate(params[:password])
      # Save the user id inside the browser cookie. This is how we keep the user
      # logged in when they navigate around our website.
+     flash[:notice] = "You have succcessfully logged in."
      session[:user_id] = user.id
      redirect_to '/'
    else
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
 
  def destroy
    session[:user_id] = nil
+   flash[:notice] = "You have succcessfully logged out."
    redirect_to '/'
  end
 end

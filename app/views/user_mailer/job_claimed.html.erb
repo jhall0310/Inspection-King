@@ -2,6 +2,18 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      img {
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin-bottom: 30px;
+      }
+
+      body {
+        background-color: #aec8d1;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello <%= @user.first_name %> <%= @user.last_name %></h1>
@@ -14,5 +26,6 @@
       <h3><%= @admin.email %></h3>
 
     <p>Thank you and have a great day!</p>
+    <img src="http://i.imgur.com/JRtEO5U.png" alt="Oakland Tree">
   </body>
 </html>
