@@ -46,7 +46,7 @@
                 <% if current_user %>
                   <p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;">Signed in as <%= current_user.first_name %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to "Logout", '/logout', class: "navbar-link login" %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to "My Profile", user_path(current_user), class: "navbar-link login" %></p>
                   <% elsif current_admin == nil %>
-                <p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"><%= link_to 'Login', '/login', class: "navbar-link login" %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to 'Signup', 'users/signup', class: "navbar-link login" %></p>
+                <p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"><%= link_to 'Login', '/login', class: "navbar-link login" %></p><p class="navbar-text navbar-right actions" style="margin-bottom:7px;float:right;display:block;"> <%= link_to 'Signup', user_new_path, method: :get, class: "navbar-link login" %></p>
                 <% end %>
             </div>
         </div>

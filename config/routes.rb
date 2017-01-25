@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   root to: "welcome#index"
 
-  get 'users/signup' => 'users#new'
+  get 'users/signup' => 'users#new', as: 'user_new'
   post '/users' => 'users#create'
 
   get '/login' => 'sessions#new'
