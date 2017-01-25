@@ -25,4 +25,4 @@ Inspection King is an introduction app into what potential to increase efficienc
 
 ## Planned Features
 
-Eventually I would like the ability to add invoice payment on the resident side. More hardcoded statuses instead off strings also the ability to allow users to upload custom images.
+Eventually I would like the ability to add invoice payment on the resident side. More hardcoded statuses instead off strings also the ability to allow users to upload custom images. Stretch goals would be to allow the ability to issue updated building plans and in-app messaging between officials.
