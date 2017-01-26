@@ -28,3 +28,7 @@
  body {
    background-color: #aec8d1;
  }
+
+ .alert strong {
+   text-align: center;
+ }

@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/'
   else
-      redirect_to 'users/signup'
+      flash[:notice] = @user.errors.full_messages.join(", ")
+      redirect_to '/'
   end
   end
 
