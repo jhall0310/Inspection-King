@@ -75,6 +75,7 @@ end
     end
   end
 
+#you can remove unused methods like this :)
   def destroy
   end
 

@@ -1,5 +1,8 @@
 class UserMailer < ApplicationMailer
 
+#I love your beautiful mailers and the formatting you did in your emails
+#as you mentioned earlier, coudl be good to have it mobile friendly since many people will
+#be viewing on mobile. 
   def welcome_email(user)
    @user = user
    @url  = 'http://example.com/login'
